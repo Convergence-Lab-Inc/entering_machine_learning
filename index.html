@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>機械学習入門</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6a5f\u68b0\u5b66\u7fd2\u5165\u9580";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> 機械学習入門</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">機械学習入門</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_2">はじめに</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">機械学習とは</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">機械学習入門</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>機械学習入門</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">機械学習入門</h1>
+<p>2020/11/27</p>
+<p>Convergence Lab.株式会社 代表取締役CEO　木村優志</p>
+<h2 id="_2">はじめに</h2>
+<p>この文書は，機械学習の基礎を理論的な詳細を踏まえながら記述したものです．基礎的な計算機科学とPythonプログラミングの知識があることを前提としています．</p>
+<h2 id="_3">機械学習とは</h2>
+<p>コンピュータプログラムでは，関数をよく用います．<script type="math/tex">y=f(x)</script> は，入力 <script type="math/tex">x</script> が与えられた時に 出力 <script type="math/tex">y</script> を返す関数 <script type="math/tex">f(\cdot)</script> を示しています．例えば，入力の2乗を返す関数なら， <script type="math/tex">f(x)=x^2</script> と書けるわけです．当然ながら，コンピュータプログラムで関数を記述するためには，入力と出力の関係が既知でなければなりません．関数内でどのような処理を行って出力を求めるのかをプログラム言語を使って記述する必要があります．</p>
+<p>一方で，現実の問題では，出力を得るために入力をどのように処理すれば良いのかわからない問題も多くあります．例えば，人間が果物の画像をみたときに，それを「りんご」や「みかん」だと判断している処理を関数だと考えてみましょう．入力は画像の画素ベクトル，出力は「りんご」などの文字列であるとみなせるでしょう．単純には，画素値をヒストグラム上に集計し，それを使って，赤い色がいくつ以上だったら「りんご」，黄色い色がいくつ以上だったら「みかん」などのように処理する方法が考えられます．この方法は画素ヒストグラムと呼ばれます．「りんご」と「みかん」ならこれで問題ないかもしれません．ここに「イチゴ」が入ってきた場合，関数はどうなるでしょうか？照明が変わった場合はどうでしょう？ルールはどんどん複雑になっていきます．</p>
+<p>機械学習では，陽に処理内容を記述せずに，入力と出力の事例からその内容を学習するアプローチを取ります．たくさんの果物の画像とその名前の組をあらかじめ用意し，その入出力を再現できる関数を推定します．この推定には様々な方法が存在します．本書ではそれらの機械学習手法を学んでいきます．</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-11-26 22:44:16.666400+00:00
+-->
